@@ -47,12 +47,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun getDpiType(): String {
        return when (resources.displayMetrics.densityDpi) {
-            DisplayMetrics.DENSITY_LOW -> "ldpi"
-            DisplayMetrics.DENSITY_MEDIUM -> "mdpi"
-            in DisplayMetrics.DENSITY_TV..DisplayMetrics.DENSITY_HIGH -> "hdpi"
-            in DisplayMetrics.DENSITY_260..DisplayMetrics.DENSITY_XHIGH -> "xhdpi"
-            in DisplayMetrics.DENSITY_340..DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi"
-            in DisplayMetrics.DENSITY_560..DisplayMetrics.DENSITY_XXXHIGH -> "xxxhdpi"
+            in 0..DisplayMetrics.DENSITY_LOW -> "ldpi"
+            in DisplayMetrics.DENSITY_LOW..DisplayMetrics.DENSITY_MEDIUM -> "mdpi"
+            in DisplayMetrics.DENSITY_MEDIUM..DisplayMetrics.DENSITY_HIGH -> "hdpi"
+            in DisplayMetrics.DENSITY_HIGH..DisplayMetrics.DENSITY_XHIGH -> "xhdpi"
+            in DisplayMetrics.DENSITY_XHIGH..DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi"
+            in DisplayMetrics.DENSITY_XXHIGH..DisplayMetrics.DENSITY_XXXHIGH -> "xxxhdpi"
             else -> "xxxhdpi"
         }
     }
